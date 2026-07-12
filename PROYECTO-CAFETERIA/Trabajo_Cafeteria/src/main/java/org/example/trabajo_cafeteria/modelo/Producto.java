@@ -1,6 +1,7 @@
 package org.example.trabajo_cafeteria.modelo;
 
 public class Producto {
+
     private int id;
     private String nombre;
     private String descripcion;
@@ -8,6 +9,13 @@ public class Producto {
     private int stock;
 
     public Producto() {
+    }
+
+    public Producto(String nombre, String descripcion, double precio, int stock) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.stock = stock;
     }
 
     public Producto(int id, String nombre, String descripcion, double precio, int stock) {
@@ -56,5 +64,10 @@ public class Producto {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

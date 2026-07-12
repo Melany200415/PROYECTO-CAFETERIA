@@ -1,25 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.trabajo_cafeteria.controlador.ProductoController"
-            prefHeight="400.0" prefWidth="600.0">
-    <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <padding>
-            <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
-        </padding>
-        <Label text="Gestión de Productos" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-        <TextField fx:id="txtNombre" promptText="Nombre"/>
-        <TextField fx:id="txtDescripcion" promptText="Descripción"/>
-        <TextField fx:id="txtPrecio" promptText="Precio"/>
-        <TextField fx:id="txtStock" promptText="Stock"/>
-        <HBox spacing="10.0" alignment="CENTER">
-            <Button text="Guardar" onAction="#guardarProducto"/>
-            <Button text="Buscar" onAction="#buscarProducto"/>
-            <Button text="Eliminar" onAction="#eliminarProducto"/>
-        </HBox>
-    </VBox>
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.trabajo_cafeteria.controlador.ProductoController">
+
+    <top>
+        <VBox spacing="10" style="-fx-background-color:#1976D2;">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="GESTIÓN DE PRODUCTOS" style="-fx-font-size:24px;-fx-text-fill:white;
+                          -fx-font-weight:bold;"/>
+
+        </VBox>
+    </top>
+
+    <center>
+
+        <VBox spacing="15">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <GridPane hgap="15" vgap="15">
+
+                <Label text="Nombre"/>
+                <TextField fx:id="txtNombre"
+                           GridPane.columnIndex="1"
+                           prefWidth="350"
+                           promptText="Ingrese el nombre"/>
+
+                <Label text="Descripción"
+                       GridPane.rowIndex="1"/>
+
+                <TextArea fx:id="txtDescripcion"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"
+                          prefRowCount="3"
+                          promptText="Ingrese una descripción"/>
+
+                <Label text="Precio"
+                       GridPane.rowIndex="2"/>
+
+                <TextField fx:id="txtPrecio"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"
+                           promptText="0.00"/>
+
+                <Label text="Stock"
+                       GridPane.rowIndex="3"/>
+
+                <TextField fx:id="txtStock"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="3"
+                           promptText="0"/>
+
+            </GridPane>
+
+            <HBox spacing="15">
+
+                <Button text="Guardar"
+                        onAction="#guardarProducto"
+                        prefWidth="120"/>
+
+                <Button text="Leer"
+                        onAction="#leerProductos"
+                        prefWidth="120"/>
+
+                <Button text="Actualizar"
+                        onAction="#actualizarProducto"
+                        prefWidth="120"/>
+
+                <Button text="Eliminar"
+                        onAction="#eliminarProducto"
+                        prefWidth="120"/>
+
+                <Button text="Limpiar"
+                        onAction="#limpiarCampos"
+                        prefWidth="120"/>
+
+                <Button text="Salir"
+                        onAction="#salir"
+                        prefWidth="120"/>
+
+            </HBox>
+
+            <TableView fx:id="tablaProductos"
+                       prefHeight="350">
+
+                <columns>
+
+                    <TableColumn fx:id="colId"
+                                 text="ID"
+                                 prefWidth="60"/>
+
+                    <TableColumn fx:id="colNombre"
+                                 text="Nombre"
+                                 prefWidth="180"/>
+
+                    <TableColumn fx:id="colDescripcion"
+                                 text="Descripción"
+                                 prefWidth="300"/>
+
+                    <TableColumn fx:id="colPrecio"
+                                 text="Precio"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="colStock"
+                                 text="Stock"
+                                 prefWidth="80"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
