@@ -1,27 +1,28 @@
 package org.example.trabajo_cafeteria.modelo;
 
 public class Cliente {
-    private int id;
+
+    private String cedula;
     private String nombre;
     private String telefono;
-    private String email;
+    private String correo;
 
     public Cliente() {
     }
 
-    public Cliente(int id, String nombre, String telefono, String email) {
-        this.id = id;
+    public Cliente(String cedula, String nombre, String telefono, String correo) {
+        this.cedula = cedula;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.email = email;
+        this.correo = correo;
     }
 
-    public int getId() {
-        return id;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public String getNombre() {
@@ -40,11 +41,16 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

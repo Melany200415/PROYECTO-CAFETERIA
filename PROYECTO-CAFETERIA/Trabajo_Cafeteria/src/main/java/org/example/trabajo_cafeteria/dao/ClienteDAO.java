@@ -1,6 +1,7 @@
 package org.example.trabajo_cafeteria.dao;
 
 import org.example.trabajo_cafeteria.modelo.Cliente;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,22 +13,22 @@ public class ClienteDAO {
         clientes.add(cliente);
     }
 
-    public void eliminar(int id) {
-        clientes.removeIf(c -> c.getId() == id);
+    public void eliminar(String cedula) {
+        clientes.removeIf(c -> c.getCedula().equals(cedula));
     }
 
     public void actualizar(Cliente cliente) {
         for (int i = 0; i < clientes.size(); i++) {
-            if (clientes.get(i).getId() == cliente.getId()) {
+            if (clientes.get(i).getCedula().equals(cliente.getCedula())) {
                 clientes.set(i, cliente);
                 break;
             }
         }
     }
 
-    public Cliente buscarPorId(int id) {
+    public Cliente buscarPorCedula(String cedula) {
         for (Cliente c : clientes) {
-            if (c.getId() == id) {
+            if (c.getCedula().equals(cedula)) {
                 return c;
             }
         }
